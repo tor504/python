@@ -1,0 +1,23 @@
+from flask import Flask, render_template, request
+
+app = Flask(__name__)
+
+# 투표 항목과 각 항목에 대한 투표 수를 저장할 딕셔너리
+poll_options = {
+    'Option 1': 0,
+    'Option 2': 0,
+    'Option 3': 0
+}
+
+@app.route('/')
+def index():
+    return render_template('index.html', poll_options=poll_options)
+
+@app.route('/vote', methods=['POST'])
+def vote():
+    selected_option = request.form['option']
+    poll_options[selected_option] += 1
+    return redirect('/')
+
+if __name__ == '__main__':
+    app.run(debug=True)

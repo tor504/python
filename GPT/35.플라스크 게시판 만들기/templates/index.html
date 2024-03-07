@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>게시판</title>
+</head>
+<body>
+    <h1>게시판</h1>
+    <form action="/add_post" method="POST">
+        <textarea name="content" placeholder="게시글 내용을 입력하세요"></textarea><br>
+        <button type="submit">게시</button>
+    </form>
+    
+    <h2>게시글 목록</h2>
+    <ul>
+        {% for post in posts %}
+            <li>{{ post }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>투표시스템</title>
+</head>
+<body>
+    <h1>Candidates:</h1>
+    <form action="/vote" method="POST">
+        <ul>
+            {% for candidate_id,candidate_name in candidates.items() %}
+            <li>
+                <label>
+                    <input type="radio" name="candidate" value="{{ candidate.id }}">
+                    {{ candidate.name }}
+                </label>
+            </li>
+            {% endfor %}
+        </ul>
+        <button type="submit">Vote</button>
+    </form>
+</body>
+</html>
